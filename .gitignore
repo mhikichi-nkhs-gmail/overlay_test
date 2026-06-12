@@ -1,0 +1,23 @@
+# TouchDesigner auto-generated
+Backup/
+*.toeBackup
+*.lock
+*.frag.glsl
+*.vert.glsl
+*.compile.txt
+
+# Local-only files
+Local/
+*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Large media (if using Git LFS instead, see below)
+# *.mp4
+# *.mov
