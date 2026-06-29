@@ -4,6 +4,7 @@ images/ フォルダ内の画像の緑背景を透過 PNG に変換
 from PIL import Image
 import os
 
+
 INPUT_DIR = 'images'
 OUTPUT_DIR = 'images_transparent'
 
