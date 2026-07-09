@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, send_from_directory
 import os
+import time
 
 app = Flask(__name__)
 
@@ -107,13 +108,21 @@ FISH_LIST = [
         "wave": 3,
         "spawnx": 1.2,
         "image_url": f"{SERVER_URL}/images/fish6.png"
-    }
+    },
+    
 ]
 
 
 @app.route('/fish/list', methods=['GET'])
 def list_fish():
-    return jsonify(FISH_LIST)
+    """URL にキャッシュバスターを付けて返す"""
+    timestamp = int(time.time())
+    fish_list = []
+    for fish in FISH_LIST:
+        fish_copy = dict(fish)
+        fish_copy['image_url'] = f"{fish['image_url']}?t={timestamp}"
+        fish_list.append(fish_copy)
+    return jsonify(fish_list)
 
 
 @app.route('/images/<filename>', methods=['GET'])
